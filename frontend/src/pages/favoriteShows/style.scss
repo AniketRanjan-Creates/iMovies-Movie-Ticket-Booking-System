@@ -1,0 +1,183 @@
+@import "../../mixins.scss";
+
+.favoritesContainer {
+  min-height: 100vh;
+  min-width: 300px;
+  padding: 80px 20px;
+  color: white;
+  background: 
+    linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(229,9,20,0.5) 100%),
+    url('https://assets.nflxext.com/ffe/siteui/vlv3/ab4b0b22-2ddf-4d48-ae88-c201ae0267e2/0efe6360-4f6d-4b10-beb6-81e0762cfe81/IN-en-20231030-popsignuptwoweeks-perspective_alpha_website_large.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+
+  h1 {
+    text-align: center;
+    font-size: 2.2rem;
+    color: white;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+    margin: 30px 0;
+    position: relative;
+    
+    &::after {
+      content: '';
+      display: block;
+      width: 100px;
+      height: 4px;
+      background: linear-gradient(to right, #e50914, #b00710);
+      margin: 20px auto 0;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(229, 9, 20, 0.5);
+    }
+    
+    span {
+      color: #e50914;
+      text-shadow: 0 2px 6px rgba(229, 9, 20, 0.7);
+    }
+    
+    @include md {
+      font-size: 2.5rem;
+    }
+  }
+
+  .favorites {
+    padding: 20px;
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    
+    @include sm {
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+    
+    @include lg {
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 25px;
+    }
+  }
+
+  .noShowsContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    min-height: 60vh;
+    background-color: rgba(20, 20, 20, 0.8);
+    border-radius: 12px;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 40px;
+    text-align: center;
+    border: 1px solid rgba(229, 9, 20, 0.3);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    
+    svg {
+      font-size: 60px;
+      color: rgba(229, 9, 20, 0.7);
+      filter: drop-shadow(0 2px 4px rgba(229, 9, 20, 0.5));
+    }
+    
+    h2 {
+      color: white;
+      font-size: 1.5rem;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+      
+      @include md {
+        font-size: 1.8rem;
+      }
+    }
+    
+    p {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 1rem;
+      max-width: 500px;
+      line-height: 1.6;
+      
+      @include md {
+        font-size: 1.1rem;
+      }
+    }
+    
+    .exploreButton {
+      background: linear-gradient(to right, #e50914, #b00710);
+      border: none;
+      border-radius: 6px;
+      padding: 12px 30px;
+      color: white;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(229, 9, 20, 0.4);
+      margin-top: 20px;
+      
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(229, 9, 20, 0.6);
+      }
+    }
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .favoritesContainer {
+    padding: 60px 15px;
+    
+    h1 {
+      font-size: 2rem;
+      margin: 20px 0;
+      
+      &::after {
+        width: 80px;
+      }
+    }
+    
+    .favorites {
+      padding: 15px;
+      gap: 15px;
+    }
+    
+    .noShowsContainer {
+      padding: 30px;
+      width: 90%;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .favoritesContainer {
+    padding: 50px 10px;
+    
+    h1 {
+      font-size: 1.8rem;
+      
+      &::after {
+        width: 60px;
+      }
+    }
+    
+    .favorites {
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 12px;
+    }
+    
+    .noShowsContainer {
+      padding: 25px 20px;
+      
+      svg {
+        font-size: 50px;
+      }
+      
+      h2 {
+        font-size: 1.3rem;
+      }
+    }
+  }
+}

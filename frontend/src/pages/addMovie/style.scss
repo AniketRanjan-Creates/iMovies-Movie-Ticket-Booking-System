@@ -1,0 +1,220 @@
+@import "../../mixins.scss";
+
+.addMovie {
+  padding-top: 80px;
+  padding-bottom: 40px;
+  color: var(--textColor);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(229,9,20,0.6) 100%), 
+              url('https://assets.nflxext.com/ffe/siteui/vlv3/ab4b0b22-2ddf-4d48-ae88-c201ae0267e2/0efe6360-4f6d-4b10-beb6-81e0762cfe81/IN-en-20231030-popsignuptwoweeks-perspective_alpha_website_large.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  h1 {
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .showDetailsForm {
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 90%;
+    max-width: 1000px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(229, 9, 20, 0.3);
+    border: 1px solid rgba(229, 9, 20, 0.2);
+
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+
+    @include lg {
+      grid-template-columns: 1.5fr 1fr;
+    }
+
+    .formSection {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      h3 {
+        color: white;
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+      }
+    }
+
+    .imageSection {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    button {
+      grid-column: 1 / -1;
+      justify-self: center;
+      cursor: pointer;
+      height: 40px;
+      padding: 0px 30px;
+      border: none;
+      font-size: 14px;
+      border-radius: 4px;
+      background: #e50914;
+      color: white;
+      font-weight: 600;
+      letter-spacing: 0.6px;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        background: #f40612;
+        transform: translateY(-2px);
+      }
+    }
+
+    .details {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+
+      .inputContainer {
+        width: 100%;
+
+        label {
+          font-size: 14px;
+          margin-bottom: 8px;
+          color: #fff;
+        }
+
+        input {
+          &::-webkit-inner-spin-button,
+          &::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+          }
+          
+          width: 100%;
+          cursor: pointer;
+          border: none;
+          height: 45px;
+          padding: 0px 15px;
+          border-radius: 4px;
+          color: #fff;
+          background-color: rgba(255, 255, 255, 0.1);
+          font-weight: 500;
+          outline: none;
+          border: 1px solid rgba(255, 255, 255, 0.2);
+
+          &:focus {
+            border: 1px solid #e50914;
+            box-shadow: 0 0 0 2px rgba(229, 9, 20, 0.3);
+          }
+
+          &::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 400;
+          }
+        }
+      }
+
+      .row {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 15px;
+
+        @include sm {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+    }
+
+    .image {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+
+      .mediaImage {
+        position: relative;
+        width: 100%;
+        max-width: 300px;
+
+        img {
+          width: 100%;
+          height: auto;
+          aspect-ratio: 2/3;
+          object-fit: cover;
+          border-radius: 8px;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .cancel {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          background: rgba(0, 0, 0, 0.7);
+          border: none;
+          color: white;
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: all 0.3s ease;
+
+          &:hover {
+            background: #e50914;
+          }
+
+          svg {
+            font-size: 16px;
+          }
+        }
+      }
+
+      .imageContainer {
+        width: 100%;
+        max-width: 300px;
+        aspect-ratio: 2/3;
+        border: 2px dashed rgba(229, 9, 20, 0.5);
+        border-radius: 10px;
+        background-color: rgba(0, 0, 0, 0.3);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s ease;
+        cursor: pointer;
+
+        &:hover {
+          border-color: #e50914;
+          background-color: rgba(229, 9, 20, 0.1);
+        }
+
+        svg {
+          font-size: 40px;
+          color: rgba(229, 9, 20, 0.7);
+        }
+
+        span {
+          color: rgba(255, 255, 255, 0.7);
+          margin-top: 10px;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

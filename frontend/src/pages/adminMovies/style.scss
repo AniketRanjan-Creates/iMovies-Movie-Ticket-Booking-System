@@ -1,0 +1,127 @@
+@import "../../mixins.scss";
+
+.adminMoviesContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 25px;
+  padding: 30px;
+  list-style-type: none;
+  background-color: var(--bg);
+  max-width: 1400px;
+  margin: 0 auto;
+
+  .adminShow {
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+    .imageContainer {
+      height: 350px;
+      width: 100%;
+      position: relative;
+      
+      .image {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+      }
+      
+      .edit, .cancel {
+        position: absolute;
+        top: 15px;
+        background-color: white;
+        border-radius: 50%;
+        height: 30px;
+        width: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        svg { color: crimson; }
+      }
+      .edit { right: 15px; }
+      .cancel { left: 15px; }
+    }
+
+    .movieInfo {
+      padding: 15px;
+      
+      /* THIS IS THE CRUCIAL FIX FOR HORIZONTAL ALIGNMENT */
+      .infoRow {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 8px;
+        
+        .label {
+          color: var(--softTextColor);
+          font-size: 14px;
+          font-weight: 500;
+          margin-right: 5px;
+          flex-shrink: 0; /* Prevents label from shrinking */
+        }
+        
+        .value {
+          color: var(--textColor);
+          font-size: 14px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+      
+      .title {
+        color: var(--textColor);
+        font-weight: bold;
+        font-size: 16px;
+        margin-bottom: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .adminMoviesContainer {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    padding: 20px;
+    gap: 20px;
+    
+    .adminShow {
+      .imageContainer {
+        height: 300px;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .adminMoviesContainer {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 15px;
+    padding: 15px;
+    
+    .adminShow {
+      .imageContainer {
+        height: 250px;
+      }
+      
+      .movieInfo {
+        padding: 12px;
+        
+        .infoRow {
+          .label, .value {
+            font-size: 13px;
+          }
+        }
+        
+        .title {
+          font-size: 15px;
+        }
+      }
+    }
+  }
+}

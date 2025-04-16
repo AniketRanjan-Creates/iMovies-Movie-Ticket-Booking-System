@@ -1,0 +1,224 @@
+@import "../../mixins.scss";
+
+.adminContainer {
+  min-height: 100vh;
+  min-width: 300px;
+  padding: 80px 20px 40px;
+  color: white;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(229,9,20,0.6) 100%), 
+              url('https://assets.nflxext.com/ffe/siteui/vlv3/ab4b0b22-2ddf-4d48-ae88-c201ae0267e2/0efe6360-4f6d-4b10-beb6-81e0762cfe81/IN-en-20231030-popsignuptwoweeks-perspective_alpha_website_large.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  .noShowsContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    min-height: 80vh;
+    text-align: center;
+    
+    svg {
+      font-size: 60px;
+      color: rgba(229, 9, 20, 0.7);
+    }
+    
+    h2 {
+      color: white;
+      font-size: 1.8rem;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    }
+    
+    p {
+      color: rgba(255, 255, 255, 0.8);
+      max-width: 500px;
+      line-height: 1.6;
+    }
+  }
+
+  .wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    
+    h1 {
+      margin-bottom: 30px;
+      text-align: center;
+      font-size: 2.5rem;
+      color: white;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+      position: relative;
+      padding-bottom: 15px;
+      
+      &::after {
+        content: '';
+        display: block;
+        width: 100px;
+        height: 4px;
+        background: #e50914;
+        margin: 15px auto 0;
+        border-radius: 2px;
+      }
+      
+      span {
+        color: #e50914;
+      }
+      
+      @include md {
+        text-align: left;
+        
+        &::after {
+          margin: 15px 0 0;
+        }
+      }
+    }
+
+    .showsContainer {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+      
+      @include sm {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      @include md {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      @include lg {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      @include xl {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      li {
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        background-color: rgba(0, 0, 0, 0.8);
+        border-radius: 12px;
+        padding: 30px;
+        border: 1px solid rgba(229, 9, 20, 0.2);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        min-height: 280px;
+        text-align: left;
+        
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 10px 25px rgba(229, 9, 20, 0.4);
+          border-color: rgba(229, 9, 20, 0.5);
+          
+          svg {
+            color: #e50914;
+          }
+        }
+
+        .showHeader {
+          display: flex;
+          align-items: flex-start;
+          gap: 20px;
+          width: 100%;
+          
+          svg {
+            transition: all 0.3s ease;
+            margin-top: 6px;
+            font-size: 28px;
+            color: rgba(255, 255, 255, 0.8);
+            flex-shrink: 0;
+          }
+          
+          h3 {
+            color: white;
+            font-size: 1.4rem;
+            margin: 0;
+            width: 100%;
+            text-align: left;
+            line-height: 1.4;
+          }
+        }
+
+        .right {
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+          flex-grow: 1;
+          width: 100%;
+          
+          .showDetails {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            
+            .detailRow {
+              display: flex;
+              align-items: center;
+              width: 100%;
+              flex-wrap: nowrap;
+              gap: 6px;
+              
+              .detailLabel {
+                font-size: 15px;
+                font-weight: 500;
+                color: rgba(255, 255, 255, 0.7);
+                white-space: nowrap;
+              }
+              
+              .detailValue {
+                font-size: 16px;
+                color: white;
+                margin: 0;
+                line-height: 1.5;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                flex: 1;
+              }
+            }
+          }
+          
+          button {
+            width: 100%;
+            background-color: transparent;
+            color: white;
+            border: 2px solid #e50914;
+            height: 45px;
+            padding: 0 20px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 10px;
+            margin-top: auto;
+            text-align: left;
+            
+            svg {
+              color: white;
+              font-size: 20px;
+              transition: all 0.3s ease;
+            }
+            
+            &:hover {
+              background-color: #e50914;
+              transform: translateY(-3px);
+              box-shadow: 0 8px 20px rgba(229, 9, 20, 0.5);
+              
+              svg {
+                color: white;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

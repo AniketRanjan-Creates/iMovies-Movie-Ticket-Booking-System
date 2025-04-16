@@ -1,0 +1,141 @@
+@import "../../mixins.scss";
+
+.profileContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 60px);
+  padding: 80px 20px;
+  color: white;
+  background: 
+    linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(229,9,20,0.5) 100%),
+    url('https://assets.nflxext.com/ffe/siteui/vlv3/ab4b0b22-2ddf-4d48-ae88-c201ae0267e2/0efe6360-4f6d-4b10-beb6-81e0762cfe81/IN-en-20231030-popsignuptwoweeks-perspective_alpha_website_large.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+
+  h1 {
+    color: white;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    position: relative;
+    
+    &::after {
+      content: '';
+      display: block;
+      width: 100px;
+      height: 4px;
+      background: linear-gradient(to right, #e50914, #b00710);
+      margin: 20px auto 0;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(229, 9, 20, 0.5);
+    }
+  }
+
+  .profileOptions {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+    max-width: 500px;
+
+    li {
+      position: relative;
+      font-size: 1.8rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.9);
+      padding: 15px 30px;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      cursor: pointer;
+      text-align: center;
+      background: rgba(20, 20, 20, 0.7);
+      border-radius: 8px;
+      border: 1px solid rgba(229, 9, 20, 0.2);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      
+      &:hover {
+        transform: translateY(-5px);
+        background: rgba(229, 9, 20, 0.1);
+        box-shadow: 0 8px 20px rgba(229, 9, 20, 0.3);
+        color: white;
+        
+        &::after {
+          width: 100%;
+        }
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background: linear-gradient(to right, #e50914, #b00710);
+        transition: width 0.3s ease;
+      }
+
+      &.active {
+        color: white;
+        background: rgba(229, 9, 20, 0.2);
+        
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .profileContainer {
+    padding: 60px 20px;
+    
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+      
+      &::after {
+        width: 80px;
+      }
+    }
+    
+    .profileOptions {
+      gap: 25px;
+      
+      li {
+        font-size: 1.5rem;
+        padding: 12px 25px;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .profileContainer {
+    padding: 50px 15px;
+    
+    h1 {
+      font-size: 1.8rem;
+      
+      &::after {
+        width: 60px;
+      }
+    }
+    
+    .profileOptions {
+      gap: 20px;
+      
+      li {
+        font-size: 1.3rem;
+        padding: 10px 20px;
+      }
+    }
+  }
+}
